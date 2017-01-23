@@ -8,6 +8,7 @@ buildscript {
 
     // Runtime
     ext.androidSupport = '25.1.0'
+    ext.timber = '4.5.1'
 
     // Runtime Test
     ext.junit='4.12'

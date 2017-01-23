@@ -1,5 +1,27 @@
 package com.ToxicBakery.learnandroid.trello.model
 
-class Board(
-        val name: String,
-        val cards: List<Card>)
+import java.util.*
+
+class Board(val uuid: String = UUID.randomUUID().toString(),
+            val name: String,
+            cards: List<Card>) {
+
+    val cards: List<Card>
+
+    init {
+        this.cards = LinkedList(cards)
+    }
+
+    override fun hashCode(): Int {
+        return uuid.hashCode()
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (other is Board) {
+            return uuid == other.uuid
+        }
+
+        return false
+    }
+
+}

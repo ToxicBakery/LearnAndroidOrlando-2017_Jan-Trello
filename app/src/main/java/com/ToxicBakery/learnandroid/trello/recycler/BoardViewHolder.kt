@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import com.ToxicBakery.learnandroid.trello.R
 import com.ToxicBakery.learnandroid.trello.model.Board
+import timber.log.Timber
 
 class BoardViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
 
@@ -13,8 +14,13 @@ class BoardViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
     val recyclerView = itemView!!.findViewById(R.id.recycler) as RecyclerView
     val buttonAddCard = itemView!!.findViewById(R.id.add_card) as Button
 
-    fun bind(board: Board) {
+    init {
+        buttonAddCard.setOnClickListener { Timber.d("Add card") }
+    }
 
+    fun bind(board: Board) {
+        Timber.d("Binding %s", board.name)
+        toolbar.title = board.name
     }
 
 }
