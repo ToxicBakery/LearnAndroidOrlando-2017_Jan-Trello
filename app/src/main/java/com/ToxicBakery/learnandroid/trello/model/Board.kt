@@ -3,8 +3,8 @@ package com.ToxicBakery.learnandroid.trello.model
 import java.util.*
 
 class Board(val uuid: String = UUID.randomUUID().toString(),
-            val name: String,
-            cards: List<Card>) {
+            val name: String = "",
+            cards: List<Card> = listOf()) {
 
     val cards: List<Card>
 

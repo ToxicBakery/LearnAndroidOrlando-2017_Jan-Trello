@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import com.ToxicBakery.learnandroid.trello.R
 import com.ToxicBakery.learnandroid.trello.board.BoardManager
 import com.ToxicBakery.learnandroid.trello.model.Board
-import java.util.*
 import kotlin.properties.Delegates
 
 class BoardAdapter : RecyclerView.Adapter<BoardViewHolder>(), AutoUpdatableAdapter {
+
+    var boardManager: BoardManager = BoardManager()
 
     var boards: List<Board> by Delegates.observable(emptyList()) {
         prop, old, new ->
@@ -22,7 +23,7 @@ class BoardAdapter : RecyclerView.Adapter<BoardViewHolder>(), AutoUpdatableAdapt
 
     override fun onBindViewHolder(holder: BoardViewHolder?, position: Int) {
         val board = boards[position]
-        holder!!.bind(board)
+        holder!!.bind(board, boardManager)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): BoardViewHolder {
