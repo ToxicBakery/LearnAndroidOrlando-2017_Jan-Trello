@@ -8,8 +8,8 @@ import android.support.v7.widget.RecyclerView
 import com.ToxicBakery.learnandroid.trello.R
 import com.ToxicBakery.learnandroid.trello.board.BoardManager
 import com.ToxicBakery.learnandroid.trello.model.Board
+import com.ToxicBakery.learnandroid.trello.model.Card
 import com.ToxicBakery.learnandroid.trello.recycler.BoardAdapter
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,9 +31,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createBoard() {
+        val cards = listOf(
+                Card(description = "Sample card")
+        )
+
         val board = Board(
                 name = "New Board",
-                cards = LinkedList())
+                cards = cards)
 
         boardManager.addOrUpdateBoard(board)
         boardAdapter.boards = boardManager.getBoards()
