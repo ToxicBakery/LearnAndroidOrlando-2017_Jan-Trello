@@ -4,10 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.ToxicBakery.learnandroid.trello.R
-import com.ToxicBakery.learnandroid.trello.board.BoardManager
-import com.ToxicBakery.learnandroid.trello.model.Board
 import com.ToxicBakery.learnandroid.trello.model.Card
-import java.util.*
 import kotlin.properties.Delegates
 
 class CardAdapter : RecyclerView.Adapter<CardViewHolder>(), AutoUpdatableAdapter {
